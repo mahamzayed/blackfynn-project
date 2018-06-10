@@ -1,5 +1,31 @@
-<div>
-    <h2>User Directory</h2>
-    <input class="input" type="text" placeholder="Text input">
-    <div>{{$ctrl.filterText}}</div>
+<section class="hero is-info is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                User Directory
+            </h1>
+            <h2 class="subtitle">
+                Enter a search keyword to find a user
+            </h2>
+        </div>
+    </div>
+</section>
+
+
+<div class="container has-background-light">
+    <div class="column is-half is-offset-one-quarter-desktop">
+        <div class="field">
+            <p class="control has-icons-left has-icons-right">
+                <input class="input" type="text" placeholder="Type user name to filter results">
+                <span class="icon is-small is-left">
+      <i class="fas fa-search"></i>
+    </span>
+            </p>
+            <div class="text">{{resultCt}} Results</div>
+        </div>
+
+    </div>
+    <div class="column is-offset-one-quarter-desktop">
+        <div>This is where my results go.</div>
+    </div>
 </div>

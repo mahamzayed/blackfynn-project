@@ -7,19 +7,21 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="../bower_components/bulma/css/bulma.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body>
+<body class="has-background-light">
 
-<div class="">
   <div ng-view></div>
-  <div>Hello world!</div>
-</div>
 
+  <script type="text/javascript" src="config/config.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="app.js"></script>
+  <script src="app.module.js"></script>
+  <script src="core/services/data.service.js"></script>
   <script src="filter-view/filter-view.module.js"></script>
-  <script src="filter-view/filter-view.component.js"></script>
+  <script src="filter-view/filter-view.controller.js"></script>
 </body>
 </html>
