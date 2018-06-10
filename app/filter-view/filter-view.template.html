@@ -12,20 +12,75 @@
 </section>
 
 
-<div class="container has-background-light">
+<div class="container has-background-white">
     <div class="column is-half is-offset-one-quarter-desktop">
         <div class="field">
             <p class="control has-icons-left has-icons-right">
-                <input class="input" type="text" placeholder="Type user name to filter results">
+                <input class="input" type="text" ng-model="search.name" placeholder="Type user name to filter results">
                 <span class="icon is-small is-left">
       <i class="fas fa-search"></i>
     </span>
             </p>
-            <div class="text">{{resultCt}} Results</div>
+            <div class="text">{{ (users | filter: search.name).length }} Results</div>
         </div>
 
     </div>
-    <div class="column is-offset-one-quarter-desktop">
-        <div>This is where my results go.</div>
-    </div>
 </div>
+    <div ng-if="showLoading">
+        <div class="container">
+            <div class="column is-offset-one-quarter-desktop">
+                <a class="loader"></a>
+            </div>
+        </div>
+    </div>
+    <div ng-if="showResults">
+    <div class="container" ng-repeat="user in ($parent.viewFilteredData = (users | filter: search.name))">
+        <div class="column is-half is-offset-one-quarter-desktop">
+            <div class="box">
+                <article class="media">
+                    <div class="media-left">
+                        <figure>
+                            <img src="{{user.picture.large}}" alt="Image">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <strong>{{user.name.first}} {{user.name.last}}</strong>
+                                <br>
+                                <div>{{user.location.street}}</div>
+                                <span>{{user.location.city}}, {{user.location.state}}, {{user.location.postcode}}</span>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+    </div>
+        <div ng-if="(users | filter: search.name).length === 0">
+            <div class="container" ng-repeat="user in users">
+                <div class="column is-half is-offset-one-quarter-desktop">
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                <figure>
+                                    <img src="{{user.picture.large}}" alt="Image">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>{{user.name.first}} {{user.name.last}}</strong>
+                                        <br>
+                                    <div>{{user.location.street}}</div>
+                                    <span>{{user.location.city}}, {{user.location.state}}, {{user.location.postcode}}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </div>
