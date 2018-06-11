@@ -16,26 +16,25 @@
     <div class="column is-half is-offset-one-quarter-desktop">
         <div class="field">
             <p class="control has-icons-left has-icons-right">
-                <input class="input" type="text" ng-model="search.name" placeholder="Type user name to filter results">
+                <input class="input" type="text" ng-model="search" placeholder="Type user name to filter results">
                 <span class="icon is-small is-left">
       <i class="fas fa-search"></i>
     </span>
             </p>
-            <div class="text">{{ (users | filter: search.name).length }} Results</div>
+
         </div>
 
     </div>
 </div>
     <div ng-if="showLoading">
         <div class="container">
-            <div class="column is-offset-one-quarter-desktop">
-                <a class="loader"></a>
-            </div>
+            <div id="loading-bar-spinner" class="spinner"><div class="spinner-icon"></div></div>
         </div>
     </div>
     <div ng-if="showResults">
-    <div class="container" ng-repeat="user in ($parent.viewFilteredData = (users | filter: search.name))">
-        <div class="column is-half is-offset-one-quarter-desktop">
+        <span class="text">{{ (users | filter: search).length}} Results</span>
+    <div class="container" ng-repeat="user in users | filter: search">
+        <div class="column is-half is-offset-one-quarter-desktop margin-space">
             <div class="box">
                 <article class="media">
                     <div class="media-left">
@@ -58,7 +57,10 @@
         </div>
 
     </div>
-        <div ng-if="(users | filter: search.name).length === 0">
+
+
+
+        <div ng-if="(users | filter: search).length === 0">
             <div class="container" ng-repeat="user in users">
                 <div class="column is-half is-offset-one-quarter-desktop">
                     <div class="box">
