@@ -3,7 +3,7 @@
 This project is a simple filter application that allows you to search through a list of users. User would filter on first name
 and/or last name to see their desired results.
 
-This project was build using angular-seed runs on NodeJS. I used AngularJS 1.7 For the front-end/UI design, I opted to use the Bulma framework for its
+This project was build using angular-seed and runs on NodeJS. I used AngularJS v1 For the front-end/UI design, I opted to use the Bulma framework for its
 ease of use and flexibility with mobile design.
 
 ## Getting Started
